@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQCloud 标签云</title>
+    <link rel="stylesheet" type="text/css" href="jqcloud.css" />
+	<script src="jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="jqcloud-1.0.4.js"></script>
+    <script type="text/javascript">
+      var arraylist = [
+        {text: "aaaaa", weight: 9, link: {href:"#",target: "_blank"}},
+        {text: "bbbbb", weight: 10.5, html: {title: "msg","class": "classname"}, link: {href: "#", target: "_blank"}},
+        {text: "ccccc", weight: 9.4, html: {"class": "classname"}},
+        {text: "dddd", weight: 8, html: {title: "msg"}},
+        {text: "eeeee", weight: 6.2},
+        {text: "fffff", weight: 5},
+        {text: "ggggg", weight: 5},
+        {text: "hhhhh", weight: 5},
+        {text: "iiiii", weight: 5},
+        {text: "jjjjj", weight: 4},
+        {text: "kkkkk", weight: 4},
+        {text: "lllll", weight: 3},
+        {text: "mmmmm", weight: 3},
+        {text: "nnnnn", weight: 3},
+        {text: "ooooo", weight: 3},
+        {text: "ppppp", weight: 3},
+        {text: "qqqqq", weight: 3},
+        {text: "rrrrr", weight: 3},
+        {text: "sssss", weight: 2},
+        {text: "ttttt", weight: 2},
+        {text: "uuuuu", weight: 2},
+        {text: "vvvvv", weight: 2},
+        {text: "wwwww", weight: 2},
+        {text: "xxxxx", weight: 2},
+        {text: "yyyyy", weight: 2},
+        {text: "zzzzz", weight: 2},
+        {text: "qetyp", weight: 2},
+        {text: "sdfgg", weight: 2},
+        {text: "vbfgj", weight: 1},
+        {text: "jhsdb", weight: 1},
+        {text: "aksnm", weight: 1},
+        {text: "metus", weight: 1},
+        {text: "fjnjn", weight: 1},
+        {text: "bhtfu", weight: 1},
+        {text: "dsadf", weight: 1},
+        {text: "ayhsa", weight: 1},
+        {text: "fghnn", weight: 1},
+        {text: "hsdvc", weight: 1},
+        {text: "askjd", weight: 1},
+        {text: "hgasv", weight: 1},
+        {text: "kjnkl", weight: 1},
+        {text: "wewrt", weight: 1}
+      ];
+      $(function() {
+        $("#content").jQCloud(arraylist);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>jQCloud 标签云</h1>
+    <div id="content" style="width: 550px; height: 350px; border: 1px solid #ccc;"></div>
+  </body>
+</html>
