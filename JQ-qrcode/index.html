@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<script src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="jquery.qrcode.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+<p>in table</p>
+<div id="qrcodeTable"></div>
+<p>in canvas</p>
+<div id="qrcodeCanvas"></div>
+<div id="output"></div>
+<script>
+	jQuery('#qrcodeTable').qrcode({
+		render: "table",
+		text: "http://www.jq22.com"
+	});	
+	jQuery('#qrcodeCanvas').qrcode({
+		text: "http://www.jq22.com"
+	});	
+	
+	jQuery('#output').qrcode("http://www.jq22.com");
+	
+</script>
+</body>
+</html>
