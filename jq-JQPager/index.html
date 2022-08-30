@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./index.css"/>
+	<script src="./jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./jquery.pager.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		#pager ul.pages{
+		    display:block;
+		    border:none;
+		    text-transform:uppercase;
+		    font-size:10px;
+			margin: 0;
+			padding:0;
+		}
+		#pager ul.pages li{
+		    list-style:none;
+		    float:left;
+		    border:1px solid #ccc;
+		    text-decoration:none;
+		    margin:0 5px 0 0;
+			padding:5px;
+		}
+		#pager ul.pages li:hover{border:1px solid #003f7e;  }
+		#pager ul.pages li.pgEmpty{
+		    border:1px solid #eee;
+		    color:#eee;
+		}
+		#pager ul.pages li.pgCurrent{
+		    border:1px solid #3c90d9;
+		    color: #fff;
+		    font-weight:700;
+		    background: #3c90d9 none repeat scroll 0 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="pager"></div>
+	<div id="asdasd">asdasdasdasd</div>
+	<script type="text/javascript">
+	    var pageCount =100;
+	    var nowPage=1;
+		//pagenumber:当前页，pagecount:总页数
+	    jQuery(function(){
+	        $("#pager").pager({ pagenumber: nowPage, pagecount: pageCount, buttonClickCallback: PageClick });
+	    });
+	    PageClick = function(pageclickednumber) {
+			console.log(pageclickednumber)
+	        $("#pager").pager({
+	            pagenumber: pageclickednumber, pagecount: pageCount, buttonClickCallback: PageClick
+	        });
+	    }
+		
+		$('#asdasd').on('click',function(){
+			pagers(1,100)
+		})
+		function pagers(num,count){
+			jQuery(function(){
+				$("#pager").pager({ pagenumber: num, pagecount: count, buttonClickCallback: PageClick });
+			});
+		}
+	</script>
+</body>
+</html>
