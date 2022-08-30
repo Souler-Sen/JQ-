@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script>
+			
+			// 存储cookie  有效期：永久  
+			// $.cookie("参数名",'值');
+			
+			
+			// 存储cookie  有效期：当天  clientid：参数名  mag：值
+			function  thatVeryDay_cookie(clientid,mag){
+			  var msg = mag || 'no'
+			  var curDate = new Date();
+			  var curTamp = curDate.getTime();
+			  var curWeeHours = new Date(curDate.toLocaleDateString()).getTime() - 1;
+			  var passedTamp = curTamp - curWeeHours;
+			  var leftTamp = 24 * 60 * 60 * 1000 - passedTamp;
+			  var leftTime = new Date();
+			  leftTime.setTime(leftTamp + curTamp);
+			  document.cookie = clientid+"="+msg+";expires=" + leftTime.toGMTString();
+			}
+		</script>
+	</body>
+</html>
