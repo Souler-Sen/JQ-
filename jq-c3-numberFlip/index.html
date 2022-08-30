@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .doubler {
+      /* width: 500px;
+      height: 60px; */
+      float: left;
+      border: 1px solid #cdcdcd;
+      /* background-color: #fffcde; */
+      /* 调整显示位置，可随意修改*/
+      margin: 50px auto;
+    }
+
+    .number {
+      height: 60px;
+      overflow: hidden;
+      margin: auto
+    }
+
+    .num {
+      width: 45px;
+      height: 60px;
+      font-size: 60px;
+      line-height: 60px
+    }
+
+    .li {
+      width: 45px;
+      float: left;
+	  color: #2142C6;
+	  font-size: 4.26667vw;
+	  font-weight: bold;
+    }
+
+    .describe {
+      float: left;
+      line-height: 14px;
+      font-size: 14px;
+      height: 14px;
+      padding-top: 40px;
+      width: 40px;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="doubler">
+    <div id="number" class="number"></div>
+    <input type="hidden" id="numA" value="12345" />
+  </div>
+
+	<button id="add">增加 数字</button>
+  <script>
+    $(function () {
+      // 初始化
+      init();
+      change();
+    });
+	
+    // 渲染页面
+    function init() {
+      var numStr = $("#numA").val();
+      var numDiv = "<div class=\"num\">0</div>" +
+        "<div class=\"num\">1</div>" +
+        "<div class=\"num\">2</div>" +
+        "<div class=\"num\">3</div>" +
+        "<div class=\"num\">4</div>" +
+        "<div class=\"num\">5</div>" +
+        "<div class=\"num\">6</div>" +
+        "<div class=\"num\">7</div>" +
+        "<div class=\"num\">8</div>" +
+        "<div class=\"num\">9</div>";
+      var html = "";
+      for (var i = 0; i < numStr.length; i++) {
+        var len = numStr.length - i;
+        var margin = 60 * parseInt(numStr[i]);
+        html += "<div class=\"li\" style=\"margin-top:-" + margin + "px\">" + numDiv + "</div>";
+        // if (len % 3 == 1 && len > 3) {
+        //   html += "<div class=\"comma\">,</div>";
+        // }
+      }
+      html += "<div class=\"describe\"></div>";
+      $("#number").html(html);
+      $("#number").css("width", (numStr.length * 45 + Math.floor(numStr.length / 3) * 20) + "px");
+    }
+
+    // 数字翻牌
+    function change() {
+      // 随机生成一个五位数
+      var num = parseInt(Math.random() * 100000);
+      var num = +$("#numA").val() + 5
+      var numStr = num + "";
+      if (numStr.length != $("div#number div.li").length) {
+        $("#numA").val(num);
+        init();
+      } else {
+        for (var i = 0; i < numStr.length; i++) {
+          var margin = 60 * parseInt(numStr[i]);
+          $("#number").find("div.li").eq(i).css({ "margin-top": 0 - margin + "px", "transition": "margin-top 1s" });
+        }
+      }
+      $("#numA").val(num);
+    }
+
+    $('#add').click(function() {
+      change()
+    })
+  </script>
+</body>
+
+</html>
