@@ -13,7 +13,7 @@ jq-数字增加滚动动画
 # JQ-qrcode
 jq-生成二维码
 
-#JQ-cookie
+# JQ-cookie
 jq-存储cookie：有效期永久/当天
 
 
